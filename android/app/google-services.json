@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "490847392658",
+    "project_id": "skillfree-be80e",
+    "storage_bucket": "skillfree-be80e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490847392658:android:3e7ee23acf12738ecde74b",
+        "android_client_info": {
+          "package_name": "com.example.skillfree"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE2l-XxgAHUCTYjYtKeN2HsEKjHbBGBxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
