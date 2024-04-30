@@ -14,7 +14,7 @@ class _addworkersState extends State<addworkers> {
   var code=['101','102','103'];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor:Colors.lightBlue[200] ,
       appBar: AppBar(
         leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed: () {
           Navigator.pop(context);
@@ -22,22 +22,29 @@ class _addworkersState extends State<addworkers> {
       ),
       body: ListView(
         children: [
-      ListTile(onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>pregister()));
-      },
-      title: Text('Painters'),
-      subtitle: Text('Works Id:101'),
-    ),
-          ListTile(
-            title: Text('Electritian'),
-            subtitle: Text('Works Id:102'),
+      Card(color: Colors.white,
+        child: ListTile(onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>pregister()));
+        },
+        title: Text('Painters'),
+        subtitle: Text('Works Id:101'),
+            ),
+      ),
+          Card(color: Colors.white,
+            child: ListTile(
+              title: Text('Electritian'),
+              subtitle: Text('Works Id:102'),
+            ),
           ),
-          ListTile(
-            title: Text('Plumber'),
-            subtitle: Text('Works Id:103'),
+          Card(color: Colors.white,
+            child: ListTile(
+              title: Text('Plumber'),
+              subtitle: Text('Works Id:103'),
+            ),
           ),
         ],
-      )
+      ),
+
     );
   }
 }

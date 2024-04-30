@@ -99,7 +99,7 @@ class _uhomeState extends State<uhome> {
                                               "Email : ${user.email!}",
 
                                               style: TextStyle(
-                                                 // fontSize: 15,fontWeight: FontWeight.w600
+                                                 fontSize: 15,fontWeight: FontWeight.w600
                                               ),
                                             )
                                           ],
@@ -195,7 +195,10 @@ class _uhomeState extends State<uhome> {
          Container(decoration:BoxDecoration(borderRadius: BorderRadius.circular(10),boxShadow: [
            BoxShadow(blurRadius: 5,color: Colors.black)
          ],color: Colors.grey[200],
-         ),margin: EdgeInsets.symmetric(horizontal: 30,vertical: 10),padding: EdgeInsets.all(5),child: TextField(decoration: InputDecoration(labelText: 'Search',suffixIcon: Icon(Icons.search_outlined),border: InputBorder.none),),height: 50,),
+         ),margin: EdgeInsets.symmetric(horizontal: 30,vertical: 10),
+           padding: EdgeInsets.all(5),
+           child: TextField(decoration: InputDecoration(labelText: 'Search',
+               suffixIcon: Icon(Icons.search_outlined),border: InputBorder.none),),height: 50,),
 
          SizedBox(height: 40,),
          Row(

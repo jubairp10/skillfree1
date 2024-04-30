@@ -118,14 +118,16 @@ class _waloginState extends State<walogin> {
   }
 
   void logincheck(String email, String password)  {
-    if (email == 'worker@gmail.com' && password == '123456') {
+    if (email == 'admin@gmail.com' && password == '123456') {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => workerbottomnavigation()));
-       if (email=='worker@gmail.com'&&password=='654123'){
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => workerbottomnavigation()));
-      }
-    } else {
+          context, MaterialPageRoute(builder: (context) => admin()));
+
+    } else if(email=='worker@gmail.com'&&password=='654123') {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => workerbottomnavigation()));
+    }else
+    {
         print('Login faild');
       }
     }
