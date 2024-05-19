@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../PaintersData/datas.dart';
+import 'booknow.dart';
 
 
 class electritian extends StatefulWidget{
@@ -58,29 +59,37 @@ class _electritianState extends State<electritian> {
                     Text('The master painter is a visionary artist with an unparalleled ability to breathe life onto canvas or any medium chosen. With strokes that dance between imagination and reality, they capture the essence of their subject matter, whether it be landscapes, portraits, abstracts, or scenes from memory. Their work transcends mere representation, evoking emotions, sparking curiosity, and inviting viewers into a world where colors and shapes converse in a language of their own'),
                     SizedBox(height: 10,),
                     Text('Daily Wage:800\/-',style: TextStyle(fontWeight: FontWeight.bold),),
-                    Row(mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          height: 40,width: 40,
-                          margin: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.teal,),
-                          child: Center(child: FaIcon(FontAwesomeIcons.whatsapp)),
-                        ),
-                        Container(
-                          height: 40,width: 260,
-                          margin: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.teal,),
-                          child: Center(child: Text('Book Now')),
-                        ),
-                        InkWell(
-                          child: Container(
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
                             height: 40,width: 40,
                             margin: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.teal,),
-                            child: Center(child: FaIcon(FontAwesomeIcons.edit)),
+                            child: Center(child: FaIcon(FontAwesomeIcons.whatsapp)),
                           ),
-                        ),
-                      ],
+                          InkWell(onTap:() {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => BookingConsole()));
+                          },
+                            child: Container(
+                              height: 40,width: 200,
+                              margin: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.teal,),
+                              child: Center(child: Text('Book Now')),
+                            ),
+                          ),
+                          InkWell(
+                            child: Container(
+                              height: 40,width: 40,
+                              margin: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.teal,),
+                              child: Center(child: FaIcon(FontAwesomeIcons.edit)),
+                            ),
+                          ),
+                        ],
+                      ),
                     )
                   ],
                 ),

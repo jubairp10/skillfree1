@@ -207,7 +207,7 @@ class _uhomeState extends State<uhome> {
                padding: const EdgeInsets.only(left: 10,right: 100),
                child: Text('Category',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
              ),
-             SizedBox(width: 80,),
+             SizedBox(width: 50,),
              Padding(
                padding: const EdgeInsets.only(right: 5,left: 80),
                child: Icon(Icons.category),
@@ -287,10 +287,10 @@ class _uhomeState extends State<uhome> {
          Row(
            children: [
              Padding(
-               padding: const EdgeInsets.only(left: 10,right: 100),
+               padding: const EdgeInsets.only(left: 10,right: 10),
                child: Text('Top Workers',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
              ),
-             SizedBox(width: 50,),
+             SizedBox(width: 90,),
              Padding(
                padding: const EdgeInsets.only(right: 5,left: 80),
                child: FaIcon(FontAwesomeIcons.rankingStar),

@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../PaintersData/datas.dart';
+import 'booknow.dart';
 
 
 class plumbers extends StatefulWidget{
@@ -59,8 +60,8 @@ class _plumbersState extends State<plumbers> {
                     SizedBox(height: 10,),
                     Text('Daily Wage:800\/-',style: TextStyle(fontWeight: FontWeight.bold),),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(mainAxisSize: MainAxisSize.min,
+                      padding: const EdgeInsets.all(10),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
                             height: 40,width: 40,
@@ -68,11 +69,16 @@ class _plumbersState extends State<plumbers> {
                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.teal,),
                             child: Center(child: FaIcon(FontAwesomeIcons.whatsapp)),
                           ),
-                          Container(
-                            height: 40,width:260,
-                            margin: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.teal,),
-                            child: Center(child: Text('Book Now')),
+                          InkWell(onTap:() {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => BookingConsole()));
+                          },
+                            child: Container(
+                              height: 40,width: 200,
+                              margin: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.teal,),
+                              child: Center(child: Text('Book Now')),
+                            ),
                           ),
                           InkWell(
                             child: Container(

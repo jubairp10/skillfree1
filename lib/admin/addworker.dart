@@ -15,7 +15,7 @@ class _addworkersState extends State<addworkers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor:Colors.lightBlue[200] ,
-      appBar: AppBar(
+      appBar: AppBar(title: Text('Category'),
         leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed: () {
           Navigator.pop(context);
         },),

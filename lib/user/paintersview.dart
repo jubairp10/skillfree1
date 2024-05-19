@@ -30,12 +30,18 @@ class _paintersviewState extends State<paintersview> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(title: Text('Painters'),
+      appBar: AppBar(
 
-      leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed: () {
-        Navigator.pop(context);
-      },),
-        bottom:AppBar(
+        title: Text('Painters'),
+
+      // leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed: () {
+      //   Navigator.pop(context);
+      //
+      // },
+      // ),
+
+        bottom:
+        AppBar(
           flexibleSpace: Container(
             margin: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
             padding: const EdgeInsets.all(5.0),

@@ -28,113 +28,111 @@ class _registerState extends State<pregister> {
       backgroundColor: Colors.blue,),
       body: Padding(
         padding: const EdgeInsets.all(15),
-        child: SingleChildScrollView(
-          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Center(child: Text('Worker Registration'
-              ,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)),
-              SizedBox(height: 10,),
-              TextField(
-                controller: id,
-                decoration: InputDecoration(labelText: 'RegisterNumber',border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
-              ),
-              SizedBox(height: 10,),hjfgdht
-              TextField(
-                controller: name_controller,
-                decoration: InputDecoration(labelText: 'Name',border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
-              ),
-              SizedBox(height: 10,),
-              TextField(
-                controller:function_controller,
-                decoration: InputDecoration(labelText: 'Function',border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
-              ),
-              SizedBox(height: 10,),
-              TextField(
-                controller: locality_controller,
-                decoration: InputDecoration(labelText: 'Location',border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
-              ),
-              SizedBox(height: 10,),
-              TextField(
-                controller: dwage_controller,
-                decoration: InputDecoration(labelText: 'Daily Wages',border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
-              ),
-              SizedBox(height: 10,),
-              Container(height: 100,
-                margin: const EdgeInsets.symmetric(horizontal:5,vertical: 5),
-                padding: const EdgeInsets.all(5.0),
-                decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(20.0),
-          
-                ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Center(child: Text('Worker Registration'
+            ,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)),
+            SizedBox(height: 10,),
+            TextField(
+              controller: id,
+              decoration: InputDecoration(labelText: 'RegisterNumber',border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+            ),
+            SizedBox(height: 10,),
+            TextField(
+              controller: name_controller,
+              decoration: InputDecoration(labelText: 'Name',border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+            ),
+            SizedBox(height: 10,),
+            TextField(
+              controller:function_controller,
+              decoration: InputDecoration(labelText: 'Function',border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+            ),
+            SizedBox(height: 10,),
+            TextField(
+              controller: locality_controller,
+              decoration: InputDecoration(labelText: 'Location',border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+            ),
+            SizedBox(height: 10,),
+            TextField(
+              controller: dwage_controller,
+              decoration: InputDecoration(labelText: 'Daily Wages',border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
+            ),
+            SizedBox(height: 10,),
+            Container(height: 100,
+              margin: const EdgeInsets.symmetric(horizontal:5,vertical: 5),
+              padding: const EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(20.0),
 
-                child: TextField(
-                  controller: description_controller,
-                  decoration: InputDecoration(
-                      hintText: "Overview",
-                      border: InputBorder.none,
-                      prefixIcon: Icon(Icons.edit)
-                  ),
+              ),
+
+              child: TextField(
+                controller: description_controller,
+                decoration: InputDecoration(
+                    hintText: "Overview",
+                    border: InputBorder.none,
+                    prefixIcon: Icon(Icons.edit)
                 ),
               ),
-              SizedBox(
-                height: 15,
-              ),
-              ElevatedButton(onPressed: (){
-                addUser();
-              }, child: Text('Add Worker')),
-              StreamBuilder<QuerySnapshot>(stream: getUser(),
-                  builder: (context,snapshot){
-                    if(snapshot.hasError){
-                      return Text('Error${snapshot.error}');
-                    }
-                    if(snapshot.connectionState==ConnectionState.waiting){
-                      return CircularProgressIndicator();
-                    }
-                    final painters=snapshot.data!.docs;
-                    return Expanded(child: ListView.builder(itemCount: painters.length,itemBuilder: (context,index){
-                      final painter=painters[index];
-                      final paintersId=painter.id;
-                      final painterspId=painter['pid'];
-                      final paintersfunction=painter['function'];
-                      final paintersname=painter['pname'];
-                      final painterslocality=painter['locality'];
-                      final paintersdwage=painter['dwage'];
-                      // final paintersdescription=painter['description'];
-          
-                      return ListTile(
-                        leading: CircleAvatar(backgroundImage: AssetImage('assets/icon/person.png'),),
-                        title: Text('$paintersname',style: TextStyle(fontWeight: FontWeight.bold)),
-                        subtitle: Column(mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [Text('$painterspId'),
-                              Text('$paintersfunction',style: TextStyle(fontWeight: FontWeight.bold),),
-                              Text('Daily Wage:$paintersdwage\/-',style: TextStyle(color:Colors.blueGrey )),
-                              Row(mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-          
-                                  Icon(Icons.location_on),
-                                  Text('$painterslocality')
-                                ],
-                              ),
-          
-                            ]),
-                        trailing: Wrap(
-                          children: [
-                            IconButton(onPressed: (){
-                              editUser(paintersId);
-                            }, icon: Icon(Icons.edit)),
-                            IconButton(onPressed: (){
-                              deleteUser(paintersId);
-                            }, icon: Icon(Icons.delete))
-                          ],
-                        ),
-                      );
-                    }));
-                  }),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(onPressed: (){
+              addUser();
+            }, child: Text('Add Worker')),
+            StreamBuilder<QuerySnapshot>(stream: getUser(),
+                builder: (context,snapshot){
+                  if(snapshot.hasError){
+                    return Text('Error${snapshot.error}');
+                  }
+                  if(snapshot.connectionState==ConnectionState.waiting){
+                    return CircularProgressIndicator();
+                  }
+                  final painters=snapshot.data!.docs;
+                  return Expanded(child: ListView.builder(itemCount: painters.length,itemBuilder: (context,index){
+                    final painter=painters[index];
+                    final paintersId=painter.id;
+                    final painterspId=painter['pid'];
+                    final paintersfunction=painter['function'];
+                    final paintersname=painter['pname'];
+                    final painterslocality=painter['locality'];
+                    final paintersdwage=painter['dwage'];
+                    // final paintersdescription=painter['description'];
+
+                    return ListTile(
+                      leading: CircleAvatar(backgroundImage: AssetImage('assets/icon/person.png'),),
+                      title: Text('$paintersname',style: TextStyle(fontWeight: FontWeight.bold)),
+                      subtitle: Column(mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [Text('$painterspId'),
+                            Text('$paintersfunction',style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text('Daily Wage:$paintersdwage\/-',style: TextStyle(color:Colors.blueGrey )),
+                            Row(mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+
+                                Icon(Icons.location_on),
+                                Text('$painterslocality')
+                              ],
+                            ),
+
+                          ]),
+                      trailing: Wrap(
+                        children: [
+                          IconButton(onPressed: (){
+                            editUser(paintersId);
+                          }, icon: Icon(Icons.edit)),
+                          IconButton(onPressed: (){
+                            deleteUser(paintersId);
+                          }, icon: Icon(Icons.delete))
+                        ],
+                      ),
+                    );
+                  }));
+                }),
+          ],
         ),
       ),
     );

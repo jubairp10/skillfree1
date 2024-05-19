@@ -18,8 +18,9 @@ class admin extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.indigo[50],
         appBar: AppBar(backgroundColor: Colors.transparent,
-            leading: Image(image: AssetImage('assets/icon/app.jpg'),),
-            title: Text('Admin'),
+            leading: ClipRRect(borderRadius: BorderRadius.all(Radius.circular(10)),
+                child: Image(image: AssetImage('assets/icon/app.jpg'),)),
+            title: Text('Admin',style: TextStyle(fontWeight: FontWeight.bold),),
             actions: [
               IconButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>notification()));
@@ -172,22 +173,19 @@ class admin extends StatelessWidget{
               ),
             ),
             SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Row(mainAxisSize: MainAxisSize.min,
-                children: [
-                  Activity(icn: Icon(Icons.person), txt: 'Users Profile', clr: Colors.green, tap: (){}),
-                  SizedBox(width: 20,),
-                  Activity(icn: Icon(Icons.add), txt: 'Add Workers', clr: Colors.red, tap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>addworkers()));
-                  }),
-                  SizedBox(width: 20,),
-                  Activity(icn:Icon (Icons.account_circle_outlined), txt: 'Complaints', clr: Colors.green, tap: (){}),
-                  SizedBox(width: 20,),
-                  Activity(icn:Icon (Icons.edit_note), txt: 'Feedback', clr: Colors.green, tap: (){}),
+            Row(mainAxisSize: MainAxisSize.min,
+              children: [
+                Activity(icn: Icon(Icons.person), txt: 'Users Profile', clr: Colors.green, tap: (){}),
+                SizedBox(width: 10,),
+                Activity(icn: Icon(Icons.add), txt: 'Add Workers', clr: Colors.red, tap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>addworkers()));
+                }),
+                SizedBox(width: 10,),
+                Activity(icn:Icon (Icons.account_circle_outlined), txt: 'Complaints', clr: Colors.green, tap: (){}),
+                SizedBox(width: 10,),
+                Activity(icn:Icon (Icons.edit_note), txt: 'Feedback', clr: Colors.green, tap: (){}),
 
-                ],
-              ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),

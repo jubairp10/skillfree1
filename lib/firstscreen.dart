@@ -53,7 +53,7 @@ class firstscreen extends StatelessWidget{
                  ),
                ),
              ),
-             SizedBox(width: 40,),
+             SizedBox(width:20,),
              Container(
                height: 100,
                width: 150,
