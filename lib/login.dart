@@ -119,7 +119,7 @@ class _loginState extends State<login> {
          TextButton(
              onPressed: () {
                Navigator.push(context,
-                   MaterialPageRoute(builder: (context) => uregistration()));
+                   MaterialPageRoute(builder: (context) => Regi()));
              },
              child: const Text('Not a User? Register Here!!!')),
 
@@ -147,5 +147,6 @@ class _loginState extends State<login> {
         email: _emailcontroller.text,
         password: _passwordcontroller.text,
         context: context);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>bottomnavigation()));
   }
 }

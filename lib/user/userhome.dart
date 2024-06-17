@@ -187,7 +187,10 @@ class _uhomeState extends State<uhome> {
      body:ListView(
        children: [
          SizedBox(height: 10,),
-         Text('Hello!!',style: GoogleFonts.aBeeZee(fontWeight: FontWeight.bold,fontSize: 25),),
+         Padding(
+           padding: const EdgeInsets.only(left: 10),
+           child: Text('Hello!!',style: GoogleFonts.aBeeZee(fontWeight: FontWeight.bold,fontSize: 25),),
+         ),
          Text(
            '${user.displayName!}'
            ,style: GoogleFonts.aboreto(fontWeight: FontWeight.w800,fontSize: 40),),

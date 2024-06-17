@@ -9,11 +9,20 @@ import 'package:skillfree/worker/notification.dart';
 void main (){
   runApp(MaterialApp(home: admin(),));
 }
-class admin extends StatelessWidget{
+class admin extends StatefulWidget{
+  @override
+  State<admin> createState() => _adminState();
+}
+
+class _adminState extends State<admin> {
   var image=['assets/image/8048.jpg','assets/image/5759.jpg','assets/image/plumber-with-thumb-up.jpg','assets/image/woman-repairer-with-painting-roller-isolated.jpg'];
+
   var color=[Colors.lime,Colors.grey,Colors.brown];
+
   var iconname=['View requests','Feedback','View Postworks'];
+
   var icon=[Icons.request_page,Icons.feedback,Icons.grid_view_rounded];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.indigo[50],
@@ -218,5 +227,4 @@ class admin extends StatelessWidget{
         )
     );
   }
-
 }

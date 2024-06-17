@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:skillfree/serviece/showSnackbar.dart';
 import 'package:skillfree/user/bottomNavigation.dart';
@@ -13,6 +14,7 @@ import '../login.dart';
 
 class Firebaseauth_method {
   final FirebaseAuth _auth;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   Firebaseauth_method(this._auth,);
 
@@ -23,6 +25,98 @@ class Firebaseauth_method {
   Stream<User?> get authState => FirebaseAuth.instance.authStateChanges();
 
 
+  Future<User?> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      if (googleUser == null) return null;
+
+      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+      final OAuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      UserCredential userCredential = await _auth.signInWithCredential(credential);
+      return userCredential.user;
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
+
+
+
+
+
+  // Register
+  // Future<User?> register(String email, String password, String name) async {
+  //   try {
+  //     UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+  //       email: email,
+  //       password: password,
+  //     );
+  //     User? user = userCredential.user;
+  //     if (user != null) {
+  //       await user.updateDisplayName(name);
+  //       await user.reload();
+  //       return _auth.currentUser;
+  //     }
+  //   }
+  //   on FirebaseAuthException catch (e) {
+  //     if (e.code == 'email-already-in-use') {
+  //       Get.snackbar('Error', 'The account already exists for that email.');
+  //     } else if (e.code == 'invalid-email') {
+  //       Get.snackbar('Error', 'The email address is badly formatted.');
+  //     } else if (e.code == 'weak-password') {
+  //       Get.snackbar('Error', 'The password provided is too weak.');
+  //     } else {
+  //       Get.snackbar('Error', e.message ?? 'An unknown error occurred.');
+  //     }
+  //   }
+  //   catch (e) {
+  //     Get.snackbar('Error', 'An unknown error occurred.');
+  //   }
+  //   return null;
+  // }
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
+  // get user => auth.currentUser;
+  //  Future<String?>signUp(  {required String name,required String email, required String pasword,required BuildContext context,}) async {
+  //    try {
+  //      await auth.createUserWithEmailAndPassword(
+  //          email: email, password: pasword);
+  //      await _auth.currentUser!.updateProfile(displayName: name);
+  //      return null;
+  //    } on FirebaseAuthException
+  //    catch (e) {
+  // Get.snackbar(
+  //      'Error',e.message!);
+  //    }
+  //
+  //  }
+
+  Future<String?> signUp({required String name, required String email, required String password, required BuildContext context}) async {
+    try {
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      User? user = userCredential.user;
+      await user?.updateDisplayName(name);
+      return null;
+    } catch (e) {
+      print("Error during sign up: $e");
+      return e.toString();
+    }
+  }
+
+//already exist
+  Future<bool> checkIfUserExists(String email) async {
+    try {
+      final signInMethods = await _auth.fetchSignInMethodsForEmail(email);
+      return signInMethods.isNotEmpty;
+    } catch (e) {
+      print("Error checking user existence: $e");
+      return false;
+    }
+  }
 
   //Email Signup
   Future<void> Signupemail({

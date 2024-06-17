@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^6.1.0
-  device_preview: ^1.1.0
   font_awesome_flutter: ^10.6.0
   fan_carousel_image_slider: ^0.1.2
   carousel_slider: ^4.2.1
@@ -48,6 +47,10 @@ dependencies:
   provider: ^6.1.1
   cloud_firestore: ^4.15.10
   flutter_datetime_picker: ^1.5.1
+  lottie:
+  flutter_screenutil:
+  google_sign_in:
+
 
 
 
@@ -85,6 +88,7 @@ flutter:
   assets:
      - assets/icon/
      - assets/image/
+     - assets/lottie/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
