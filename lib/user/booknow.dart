@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:skillfree/user/bookconform.dart';
 
 // class booknow  extends StatelessWidget{
 //   @override
@@ -64,7 +65,11 @@ class _BookingConsoleState extends State<BookingConsole> {
             subtitle: Text("${selectedTime.format(context)}"),
             onTap: () => _selectTime(context),
           ),
-          ElevatedButton(onPressed: (){}, child: Text('Pay Now'))
+
+          Center(child: Text('RS 500/-')),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>brentbus()));
+          }, child: Text('Pay Now'))
           // Add payment options UI and logic here
         ],
       ),
